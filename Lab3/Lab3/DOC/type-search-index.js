@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"KI306.Yarmola.Lab3","l":"ElectricTrain"},{"p":"KI306.Yarmola.Lab3","l":"Locomotive"},{"p":"<Unnamed>","l":"TrainApp"},{"p":"KI306.Yarmola.Lab3","l":"TrainInterface"}];updateSearchResults();
