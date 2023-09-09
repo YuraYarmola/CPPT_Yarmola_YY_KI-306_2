@@ -16,7 +16,7 @@ public abstract class Locomotive {
     private Engine engine;
     private int train_car_num;
     private boolean is_door_open;
-    private PrintWriter fout;
+    protected PrintWriter fout;
 
     /**
      * Default constructor for the locomotive.
@@ -25,7 +25,7 @@ public abstract class Locomotive {
      */
     public Locomotive() throws FileNotFoundException {
         engine = new Engine();
-        train_car_num = 0;
+        train_car_num = 1;
         is_door_open = false;
         fout = new PrintWriter(new File("Log.txt"));
         fout.println();
@@ -261,6 +261,7 @@ class Engine {
      * @return The current rotation value.
      */
     public int get_rotation() {
+
         return rotate_num;
     }
 }

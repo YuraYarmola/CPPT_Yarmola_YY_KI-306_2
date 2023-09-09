@@ -1,0 +1,12 @@
+
+Create locomotive
+Create Electric train
+Start locomotive
+Add 4 cars
+Train door is opened
+Train door is closed
+Temperature is 25
+Train light is turn on
+Speed now = 1320
+Speed now = 1440
+Stop locomotive

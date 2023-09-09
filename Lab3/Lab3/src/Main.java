@@ -1,17 +1,20 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import KI306.Yarmola.Lab3.ElectricTrain;
+
+import java.io.FileNotFoundException;
+
 public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String[] args) throws FileNotFoundException {
+        ElectricTrain train = new ElectricTrain();
+        train.start_locomotive();
+        train.add_car(4);
+        train.open_train_door();
+        train.close_train_door();
+        train.add_temperature(5);
+        train.turn_on_light();
+        train.add_speed();
+        train.add_speed();
+        train.stop_locomotive();
+        train.dispose();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
     }
 }
