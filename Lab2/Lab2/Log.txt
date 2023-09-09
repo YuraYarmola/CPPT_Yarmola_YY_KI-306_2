@@ -1,0 +1,11 @@
+
+Create working locomotive
+Start locomotive
+Add 2 cars
+Speed now = 550
+Speed now = 600
+Speed now = 650
+Door in locomotive is closed
+Minus 5 cars
+Speed now = 1028
+Stop locomotive
