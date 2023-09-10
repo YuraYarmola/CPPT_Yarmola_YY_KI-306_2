@@ -43,7 +43,6 @@ public class Lab1YarmolaKI306 {
             }
 
             arr[I] = new char[I];
-
             for (int J = 0; J < I; J++)
             {
                 arr[I][J] = (char)filler.codePointAt(0);
