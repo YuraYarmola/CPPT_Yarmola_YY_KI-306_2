@@ -10,6 +10,7 @@ if __name__ == "__main__":
     print(intersiti.get_passenger_count())
 
     ukrzal = electric_train.ElectricTrain("UkrZaliznitsa", 120, 700)
+    ukrzal.set_speed(30)
     ukrzal.set_speed(40)
     print(ukrzal.get_current_speed())
 
