@@ -1,6 +1,6 @@
 package KI306.Yarmola.Lab3;
 
-public abstract interface TrainInterface {
+public interface TrainInterface {
     public void open_train_door();
     public  void close_train_door();
     public  void turn_on_light();

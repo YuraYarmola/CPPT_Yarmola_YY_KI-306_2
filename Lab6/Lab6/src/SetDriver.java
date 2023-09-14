@@ -24,12 +24,17 @@ public class SetDriver {
         System.out.println("Перелік елементів: " + integerSet.getElements());
         System.out.println("Мінімальний елемент: " + integerSet.findMin());
 
+
         // Створюємо множину для рядків і виконуємо декілька операцій з нею
         SetContainer<String> stringSet = new SetContainer<>();
         stringSet.addElement("apple");
         stringSet.addElement("banana");
         stringSet.addElement("cherry");
+        stringSet.addElement("banana1");
+        stringSet.addElement("cherry1");
         System.out.println("Мінімальний елемент: " + stringSet.findMin());
+        System.out.println("Кількість елементів" + SetContainer.all_nums);
         stringSet.clear();
+
     }
 }

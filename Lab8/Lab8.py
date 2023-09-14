@@ -1,53 +1,52 @@
-# import modules
-import math
-import pickle
+class LeafElement:
+
+    def __init__(self, name):
+        self.name = name
+        #self.level = super.level + 1
+        ''''Takes the first positional argument and assigns to member variable "position".'''
+
+    def showDetails(self, tab=0):
+        print( '\t'*tab +"{self.name}")
+        '''Prints the position of the child element.'''
 
 
-# exception class
-class BadOption(Exception):
-    pass
+class CompositeElement:
 
-#main calculate function
-def calculate_expression(x):
-    try:
-        ctg_x = 1 / math.tan(x)
-        result = math.cos(x) / (x + 2 * ctg_x)
-        return result
-    except ZeroDivisionError:
-        print("Error: Division by zero")
-        return None
+    def __init__(self, name):
+        self.composite_name = name
+        self.childs = []
+        '''Takes the first positional argument and assigns to member 
+         variable "position". Initializes a list of children elements.'''
 
-# get x from text
-def get_from_text_file(filename):
-    with open(filename, 'r') as file:
-        data = file.readline()
-        return float(data)
+    def add(self, child):
+        self.childs.append(child)
+        '''Adds the supplied child element to the list of children 
+         elements "children".'''
 
-# save result to file
-def save_to_text_file(filename, x, result):
-    with open(filename, "w") as file:
-        file.write(f"x = {x}\n")
-        file.write(f"Result = {result}\n")
+    def remove(self, child):
+        self.childs.remove(child)
+        '''Removes the supplied child element from the list of 
+        children elements "children".'''
 
-# save result to binary file
-def save_to_binary_file(filename, x, result):
-    data = {"x": x, "result": result}
-    with open(filename, "wb") as file:
-        pickle.dump(data, file)
+    def showDetails(self, tab=0):
+        print('\t'*tab + self.composite_name)
+        for child in self.childs:
+            child.showDetails(tab+1)
+        '''Prints the details of the component element first. Then, 
+        iterates over each of its children, prints their details by 
+        calling their showDetails() method.'''
 
-# main block
-if __name__ == "__main__":
-    option = int(input("1 - From file\n2 - From console\nYour choose: "))
-    if option == 2:
-        x = float(input("Enter the value of x: "))
-    elif option == 1:
-        x = get_from_text_file('input.txt')
-    else:
-        raise BadOption
-    result = calculate_expression(x)
-
-    if result is not None:
-        save_to_text_file("result.txt", x, result)
-        save_to_binary_file("result.bin", x, result)
-        print("Result: " + str(result))
-        print("Results saved to 'result.txt' and 'result.bin'.")
+topLevelMenu = CompositeElement("GeneralManager")
+subMenuItem1 = CompositeElement("Manager1")
+subMenuItem2 = CompositeElement("Manager2")
+subMenuItem11 = LeafElement("Developer11")
+subMenuItem12 = LeafElement("Developer12")
+subMenuItem21 = LeafElement("Developer21")
+subMenuItem22 = LeafElement("Developer22")
+subMenuItem1.add(subMenuItem11)
+subMenuItem1.add(subMenuItem12)
+subMenuItem2.add(subMenuItem22)
+subMenuItem2.add(subMenuItem22)
+topLevelMenu.add(subMenuItem1)
+topLevelMenu.add(subMenuItem2)
+topLevelMenu.showDetails()

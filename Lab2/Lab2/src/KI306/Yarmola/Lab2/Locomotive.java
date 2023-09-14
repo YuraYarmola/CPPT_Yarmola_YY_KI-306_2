@@ -18,6 +18,7 @@ public class Locomotive {
     private boolean is_door_open;
     private PrintWriter fout;
 
+    public static int number_open_door = 0;
     /**
      * Default constructor for the locomotive.
      *
@@ -44,6 +45,9 @@ public class Locomotive {
         engine = new Engine(engine_working);
         train_car_num = train_car_number;
         is_door_open = open_door;
+        if(is_door_open){
+          number_open_door += 1;
+        }
         fout = new PrintWriter(new File("Log.txt"));
         fout.println();
         fout.write("Create working locomotive");
@@ -55,6 +59,9 @@ public class Locomotive {
     public void open_door() {
         fout.println();
         fout.write("Door in locomotive is open");
+        if(!is_door_open) {
+            number_open_door += 1;
+        }
         is_door_open = true;
     }
 
@@ -64,6 +71,7 @@ public class Locomotive {
     public void close_door() {
         fout.println();
         fout.write("Door in locomotive is closed");
+        number_open_door -= 1;
         is_door_open = false;
     }
 

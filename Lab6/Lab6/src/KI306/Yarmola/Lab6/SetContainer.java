@@ -10,6 +10,8 @@ import java.util.List;
  * @param <T> Тип елементів множини, які реалізують інтерфейс Comparable.
  */
 public class SetContainer<T extends Comparable<T>> {
+
+    public static int all_nums = 0;
     private List<T> elements = new ArrayList<>();
 
     /**
@@ -25,15 +27,19 @@ public class SetContainer<T extends Comparable<T>> {
         }
     }
 
+
     /**
      * Додає елемент до множини, якщо він ще не міститься в ній.
      *
      * @param element Елемент для додавання до множини.
      */
     public void addElement(T element) {
+        int before = this.getElements().size();
         if (!elements.contains(element)) {
             elements.add(element);
         }
+        int after = this.getElements().size();
+        all_nums += after - before;
     }
 
     /**
@@ -42,7 +48,10 @@ public class SetContainer<T extends Comparable<T>> {
      * @param element Елемент для видалення із множини.
      */
     public void removeElement(T element) {
+        int before = this.getElements().size();
         elements.remove(element);
+        int after = this.getElements().size();
+        all_nums -= before - after;
     }
 
     /**
@@ -70,6 +79,9 @@ public class SetContainer<T extends Comparable<T>> {
      * Очищає множину, видаляючи всі елементи.
      */
     public void clear() {
+        int before = this.getElements().size();
         elements.clear();
+        int after = this.getElements().size();
+        all_nums -= before - after;
     }
 }
